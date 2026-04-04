@@ -34,12 +34,7 @@ const DRILL_SCENES = [
   },
 ];
 
-const SELF_HEAL_LINES = [
-  { icon: "clock", time: "03:14:22", text: "disk-full triggered (disk 91%)", color: "amber" as const },
-  { icon: "arrow", text: "Executing: docker system prune -f", color: "primary" as const },
-  { icon: "arrow", text: "Reclaimed 4.2 GB", color: "primary" as const },
-  { icon: "check", time: "03:14:29", text: "Resolved (disk 66%)", color: "green" as const },
-];
+
 
 const SUPPORTED_APPS = [
   "uptime-kuma",
@@ -191,36 +186,4 @@ export default function KillingScenarios() {
   );
 }
 
-function SelfHealLine({
-  icon,
-  time,
-  text,
-  color,
-}: {
-  icon: string;
-  time?: string;
-  text: string;
-  color: "amber" | "green" | "primary";
-}) {
-  const colorMap = {
-    amber: "text-[#f59e0b]",
-    green: "text-[#10b981]",
-    primary: "text-[#00ADD8]",
-  };
 
-  const iconMap: Record<string, string> = {
-    clock: "\u23F1",
-    arrow: "\u2192",
-    check: "\u2713",
-  };
-
-  return (
-    <div className="flex items-center gap-3 font-mono text-sm">
-      <span className={colorMap[color]}>{iconMap[icon]}</span>
-      {time && <span className="text-[#52525b]">{time}</span>}
-      <span className={color === "green" ? "text-[#10b981]" : color === "amber" ? "text-[#f59e0b]" : "text-[#e5e7eb]"}>
-        {text}
-      </span>
-    </div>
-  );
-}
