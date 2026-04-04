@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-bg: #09090b;
+  --color-card: #18181b;
+  --color-card-hover: #27272a;
+  --color-primary: #00ADD8;
+  --color-primary-dim: #00ADD8cc;
+  --color-green: #10b981;
+  --color-amber: #f59e0b;
+  --color-red: #ef4444;
+  --color-border: #27272a;
+  --color-text: #e5e7eb;
+  --color-text-dim: #a1a1aa;
+  --color-text-bright: #fafafa;
+}
+
+html {
+  background-color: var(--color-bg);
+}
+
+/* Terminal styling */
+.terminal {
+  background: #0c0c0e;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  background: #18181b;
+  border-bottom: 1px solid #27272a;
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-body {
+  padding: 20px;
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  min-height: 200px;
+}
+
+/* Typing cursor */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 80px rgba(0, 173, 216, 0.15), 0 0 160px rgba(0, 173, 216, 0.05);
+}
+
+.glow-green {
+  box-shadow: 0 0 60px rgba(16, 185, 129, 0.1);
+}
+
+/* Dashboard perspective */
+.perspective-shot {
+  perspective: 1200px;
+}
+
+.perspective-shot img {
+  transform: rotateX(4deg) rotateY(-2deg);
+  transition: transform 0.5s ease;
+}
+
+.perspective-shot:hover img {
+  transform: rotateX(1deg) rotateY(-0.5deg);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #fafafa 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-primary {
+  background: linear-gradient(135deg, #00ADD8 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+
+/* Section divider gradient */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #27272a 20%, #27272a 80%, transparent);
+}
+
+/* Grid pattern background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
