@@ -34,7 +34,27 @@ const DRILL_SCENES = [
   },
 ];
 
-
+const MCP_SCENES = [
+  {
+    command: 'claude: "Why is Plex not working?"',
+    output: [
+      { text: "", delay: 300 },
+      { text: "  {primary:→ mcp} homebutler docker list", delay: 400 },
+      { text: "  {dim:  plex          } {red:exited (137)}  3h ago", delay: 200 },
+      { text: "  {dim:  uptime-kuma   } {green:running}      4d", delay: 150 },
+      { text: "  {dim:  vaultwarden   } {green:running}      4d", delay: 150 },
+      { text: "", delay: 200 },
+      { text: '  {primary:→ mcp} homebutler docker restart plex', delay: 500 },
+      { text: "  Container restarted.", delay: 400 },
+      { text: "", delay: 200 },
+      { text: '  {primary:→ mcp} homebutler docker list --filter plex', delay: 300 },
+      { text: "  {dim:  plex          } {green:running}      2s", delay: 200 },
+      { text: "", delay: 100 },
+      { text: '  {green:Plex is back online.} It crashed due to OOM.', delay: 200 },
+      { text: "  Recommend increasing memory limit.", delay: 150 },
+    ],
+  },
+];
 
 const SUPPORTED_APPS = [
   "uptime-kuma",
@@ -74,7 +94,6 @@ export default function KillingScenarios() {
             {...fadeUp}
             className="grid md:grid-cols-2 gap-12 items-center mb-8"
           >
-            {/* Left: text */}
             <div>
               <p className="text-sm font-medium text-[#f59e0b] tracking-wider uppercase mb-3">
                 Scenario 01
@@ -91,8 +110,6 @@ export default function KillingScenarios() {
                 dashboard login.
               </p>
             </div>
-
-            {/* Right: live chat simulation */}
             <div className="flex justify-center">
               <ChatMockup />
             </div>
@@ -105,7 +122,6 @@ export default function KillingScenarios() {
             {...fadeUp}
             className="grid md:grid-cols-2 gap-12 items-center"
           >
-            {/* Left: text */}
             <div>
               <p className="text-sm font-medium text-[#10b981] tracking-wider uppercase mb-3">
                 Scenario 02
@@ -122,53 +138,68 @@ export default function KillingScenarios() {
                 responds.
               </p>
             </div>
-
-            {/* Right: terminal simulation */}
             <div className="glow-green">
               <TerminalSim scenes={DRILL_SCENES} loop compact />
             </div>
           </motion.div>
         </div>
 
-        {/* Scenario 3: One binary install */}
-        <div>
+        {/* Scenario 3: AI fixes Plex */}
+        <div className="mb-32">
           <motion.div
             {...fadeUp}
-            className="grid md:grid-cols-2 gap-12 items-center mb-10"
+            className="grid md:grid-cols-2 gap-12 items-center"
           >
-            {/* Left: text */}
             <div>
               <p className="text-sm font-medium text-[#00ADD8] tracking-wider uppercase mb-3">
                 Scenario 03
               </p>
               <h3 className="text-2xl md:text-4xl font-bold text-[#fafafa] mb-4 leading-tight">
-                One binary. 15 apps.
+                "Why is Plex
                 <br />
-                Zero config.
+                not working?"
               </h3>
               <p className="text-[#a1a1aa] text-lg leading-relaxed">
-                Deploy self-hosted apps in seconds. Pre-checks Docker, ports,
-                and conflicts automatically. Generates{" "}
-                <code className="text-[#00ADD8] bg-[#18181b] px-1.5 py-0.5 rounded text-sm">
-                  docker-compose.yml
-                </code>{" "}
-                for you.
+                Ask your AI in natural language. It calls Homebutler's MCP tools
+                automatically — diagnoses the problem, restarts the container,
+                confirms it's back. You never type a single command.
               </p>
             </div>
-
-            {/* Right: install GIF */}
-            <div className="rounded-xl overflow-hidden border border-[#27272a] glow-primary">
-              <img
-                src="/images/install-demo.gif"
-                alt="homebutler install demo"
-                className="w-full"
-                loading="lazy"
-              />
+            <div className="glow-primary">
+              <TerminalSim scenes={MCP_SCENES} loop compact />
             </div>
+          </motion.div>
+        </div>
+
+        {/* Scenario 4: Future vision */}
+        <div>
+          <motion.div
+            {...fadeUp}
+            className="text-center max-w-3xl mx-auto mb-10"
+          >
+            <p className="text-sm font-medium text-[#a1a1aa] tracking-wider uppercase mb-3">
+              Coming soon
+            </p>
+            <h3 className="text-2xl md:text-4xl font-bold text-[#fafafa] mb-4 leading-tight">
+              You did nothing.
+              <br />
+              <span className="gradient-text-primary">And everything worked.</span>
+            </h3>
+            <p className="text-[#a1a1aa] text-lg leading-relaxed">
+              AI agents run health checks every night. Disk filling up? Pruned.
+              Container crashed? Restarted. Backup expired? Refreshed and drilled.
+              You wake up to a one-line summary:{" "}
+              <span className="text-[#10b981] font-medium">
+                "All systems nominal."
+              </span>
+            </p>
           </motion.div>
 
           {/* App grid */}
           <motion.div {...fadeUp} className="max-w-3xl mx-auto">
+            <p className="text-center text-sm text-[#52525b] mb-4">
+              15+ apps ready to deploy with one command
+            </p>
             <div className="flex flex-wrap justify-center gap-2">
               {SUPPORTED_APPS.map((app) => (
                 <span
@@ -185,5 +216,3 @@ export default function KillingScenarios() {
     </section>
   );
 }
-
-

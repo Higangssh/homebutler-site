@@ -5,11 +5,11 @@ export default function Footer() {
         <div className="flex items-center gap-2.5">
           <img
             src="/images/logo.png"
-            alt="homebutler"
+            alt="Homebutler"
             className="w-5 h-5 rounded"
           />
           <span className="text-sm text-[#52525b]">
-            homebutler — MIT License
+            Homebutler — MIT License
           </span>
         </div>
 

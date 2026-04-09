@@ -1,81 +1,64 @@
 import { motion } from "framer-motion";
 import TerminalSim from "./TerminalSim";
 
+
 const HERO_SCENES = [
   {
-    command: "homebutler status",
+    command: "homebutler alerts --watch",
     output: [
+      { text: "", delay: 300 },
+      {
+        text: "  {red:🔴 ALERT} disk-full triggered on {primary:nas-01}",
+        delay: 200,
+      },
+      { text: "  Disk usage: {red:91.2%}  Threshold: 85%", delay: 150 },
+      { text: "  → Executing: {amber:docker system prune -f}", delay: 400 },
+      { text: "  → Reclaimed {green:4.2 GB}", delay: 500 },
+      { text: "  → Disk usage: {red:91%} → {green:66%}", delay: 300 },
+      { text: "  → Notification sent to {primary:Telegram}", delay: 200 },
+      { text: "", delay: 100 },
+      { text: "  {green:✅ Resolved in 7s.} You slept through it.", delay: 200 },
+    ],
+  },
+  {
+    command: "homebutler install uptime-kuma",
+    output: [
+      { text: "", delay: 200 },
+      { text: "  Checking Docker...       {green:OK}", delay: 300 },
+      { text: "  Checking port 3001...    {green:available}", delay: 200 },
+      { text: "  Pulling uptime-kuma:1...", delay: 500 },
+      { text: "  Generating docker-compose.yml...", delay: 300 },
+      { text: "  Starting container...", delay: 600 },
       { text: "", delay: 100 },
       {
-        text: "  {primary:SERVER}        {primary:STATUS}    {primary:CPU}    {primary:MEM}     {primary:DISK}",
-        delay: 50,
+        text: "  {green:uptime-kuma is running} at http://localhost:3001",
+        delay: 150,
       },
-      {
-        text: "  nas-01         {green:online}    12%    4.2/16G  {green:42%}",
-        delay: 60,
-      },
-      {
-        text: "  pi-cluster     {green:online}     8%    1.8/4G   {green:61%}",
-        delay: 60,
-      },
-      {
-        text: "  media-srv      {green:online}    34%    8.1/32G  {amber:78%}",
-        delay: 60,
-      },
-      { text: "", delay: 80 },
-      { text: "  {green:3 servers online} | 15 apps running", delay: 100 },
     ],
   },
   {
     command: "homebutler backup drill --all",
     output: [
       { text: "", delay: 200 },
-      {
-        text: "  {primary:Drilling} uptime-kuma ...",
-        delay: 400,
-      },
-      {
-        text: "  Integrity: {green:tar valid (847 files)}",
-        delay: 200,
-      },
+      { text: "  {primary:Drilling} uptime-kuma ...", delay: 400 },
+      { text: "  Integrity: {green:tar valid (847 files)}", delay: 200 },
       { text: "  Boot:      {green:container started in 8s}", delay: 300 },
       { text: "  Health:    {green:HTTP 200}", delay: 200 },
       { text: "  {green:DRILL PASSED}", delay: 100 },
       { text: "", delay: 100 },
-      {
-        text: "  {primary:Drilling} vaultwarden ...",
-        delay: 400,
-      },
+      { text: "  {primary:Drilling} vaultwarden ...", delay: 400 },
       { text: "  Integrity: {green:tar valid (234 files)}", delay: 200 },
       { text: "  Boot:      {green:container started in 5s}", delay: 300 },
       { text: "  Health:    {green:HTTP 200}", delay: 200 },
       { text: "  {green:DRILL PASSED}", delay: 100 },
       { text: "", delay: 100 },
-      {
-        text: "  {green:2/2 drills passed.} Your backups work.",
-        delay: 150,
-      },
-    ],
-  },
-  {
-    command: "homebutler install jellyfin",
-    output: [
-      { text: "", delay: 200 },
-      { text: "  Checking Docker...       {green:OK}", delay: 300 },
-      { text: "  Checking port 8096...    {green:available}", delay: 200 },
-      { text: "  Pulling jellyfin:latest...", delay: 400 },
-      { text: "  Generating docker-compose.yml...", delay: 300 },
-      { text: "  Starting container...", delay: 500 },
-      { text: "", delay: 100 },
-      {
-        text: "  {green:jellyfin is running} at http://localhost:8096",
-        delay: 150,
-      },
+      { text: "  {green:2/2 drills passed.} Your backups work.", delay: 150 },
     ],
   },
 ];
 
 export default function Hero() {
+
   return (
     <section className="relative pt-32 pb-20 overflow-hidden">
       {/* Background grid */}
@@ -84,34 +67,24 @@ export default function Hero() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(0,173,216,0.08)_0%,transparent_70%)]" />
 
       <div className="relative max-w-6xl mx-auto px-6">
-        {/* Badge */}
-        <motion.div
+        {/* Eyebrow */}
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex justify-center mb-8"
+          className="text-center text-sm md:text-base font-medium text-[#00ADD8] tracking-wider uppercase mb-5"
         >
-          <a
-            href="https://github.com/Higangssh/homebutler"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs text-[#a1a1aa] border border-[#27272a] rounded-full px-4 py-1.5 hover:border-[#3f3f46] transition-colors"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
-            v0.13.0 — Now with Backup Drill
-          </a>
-        </motion.div>
+          You'll never touch your servers again.
+        </motion.p>
 
         {/* Title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-center text-5xl md:text-7xl font-extrabold tracking-tight gradient-text leading-[1.1] mb-6"
+          className="text-center text-4xl md:text-6xl font-extrabold tracking-tight gradient-text leading-[1.1] mb-6"
         >
-          Your homelab,
-          <br />
-          one binary away.
+          Just receive the report.
         </motion.h1>
 
         {/* Subtitle */}
@@ -121,8 +94,9 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center text-lg md:text-xl text-[#a1a1aa] max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Monitor, control, backup, and self-heal your servers — from chat, AI,
-          or terminal. Single binary. Zero dependencies.
+          Homebutler monitors, heals, and deploys — all on its own.
+          <br />
+          <span className="text-[#e5e7eb] font-medium">One binary. CLI, AI, or chat.</span>
         </motion.p>
 
         {/* CTAs */}

@@ -95,7 +95,7 @@ export default function TerminalSim({
         <span className="terminal-dot bg-[#ef4444]" />
         <span className="terminal-dot bg-[#f59e0b]" />
         <span className="terminal-dot bg-[#10b981]" />
-        <span className="ml-auto text-xs text-[#52525b]">homebutler</span>
+        <span className="ml-auto text-xs text-[#52525b]">Homebutler</span>
       </div>
       <div
         className={`terminal-body overflow-y-auto ${compact ? "text-xs !min-h-0 !p-4" : ""}`}

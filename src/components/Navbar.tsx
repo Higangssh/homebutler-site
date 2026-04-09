@@ -31,11 +31,11 @@ export default function Navbar() {
         <a href="#" className="flex items-center gap-2.5">
           <img
             src="/images/logo.png"
-            alt="homebutler"
+            alt="Homebutler"
             className="w-8 h-8 rounded-md"
           />
           <span className="text-[#fafafa] font-semibold text-lg tracking-tight">
-            homebutler
+            Homebutler
           </span>
         </a>
 
