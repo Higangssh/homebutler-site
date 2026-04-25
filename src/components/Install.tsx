@@ -24,7 +24,7 @@ const METHODS: Method[] = [
   {
     id: "brew",
     label: "Homebrew",
-    command: "brew install homebutler",
+    command: "brew install Higangssh/homebutler/homebutler",
   },
   {
     id: "npm",
