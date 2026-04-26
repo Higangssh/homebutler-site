@@ -18,7 +18,7 @@ const messages: ChatMessage[] = [
     content: (
       <div className="font-mono text-[12.5px] leading-relaxed rounded-lg p-3 bg-[#1a1a2e] border-l-[3px] border-l-[#ef4444]">
         <div className="text-[#ef4444] font-semibold mb-1">🔴 ALERT — disk-full</div>
-        <div><span className="text-[#71717a]">Server:</span> nas-01</div>
+        <div><span className="text-[#71717a]">Server:</span> demo-node</div>
         <div><span className="text-[#71717a]">Disk:</span> <span className="text-[#ef4444]">91.2%</span> <span className="text-[#71717a]">(threshold: 85%)</span></div>
         <div><span className="text-[#71717a]">Mount:</span> /dev/sda1</div>
         <div className="mt-2"><span className="text-[#f59e0b]">→ Executing playbook...</span></div>
@@ -46,9 +46,9 @@ const messages: ChatMessage[] = [
         <div><span className="text-[#71717a]">Disk now:</span> <span className="text-[#10b981]">66%</span></div>
         <div><span className="text-[#71717a]">Duration:</span> 7s</div>
         <div className="mt-2 text-[#71717a] text-[11px]">SERVER STATUS</div>
-        <div>nas-01 &nbsp;&nbsp;&nbsp;<span className="text-[#10b981]">●</span> cpu 3% &nbsp;mem 41% &nbsp;disk <span className="text-[#10b981]">66%</span></div>
-        <div>pi-cluster <span className="text-[#10b981]">●</span> cpu 8% &nbsp;mem 45% &nbsp;disk 52%</div>
-        <div>media-srv &nbsp;<span className="text-[#10b981]">●</span> cpu 2% &nbsp;mem 38% &nbsp;disk 41%</div>
+        <div>demo-node <span className="text-[#10b981]">●</span> cpu 3% &nbsp;mem 41% &nbsp;disk <span className="text-[#10b981]">66%</span></div>
+        <div>lab-node-2 <span className="text-[#10b981]">●</span> cpu 8% &nbsp;mem 45% &nbsp;disk 52%</div>
+        <div>media-box &nbsp;<span className="text-[#10b981]">●</span> cpu 2% &nbsp;mem 38% &nbsp;disk 41%</div>
       </div>
     ),
     time: "3:15 AM",
@@ -65,31 +65,34 @@ const messages: ChatMessage[] = [
 
 export default function ChatMockup() {
   const [visibleCount, setVisibleCount] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
-    if (hasStarted) return;
-    setHasStarted(true);
+    const timers: ReturnType<typeof setTimeout>[] = [];
 
-    messages.forEach((msg, i) => {
-      setTimeout(() => {
-        setVisibleCount(i + 1);
-      }, msg.delay);
-    });
+    const play = () => {
+      messages.forEach((msg, i) => {
+        timers.push(
+          setTimeout(() => {
+            setVisibleCount(i + 1);
+          }, msg.delay),
+        );
+      });
+    };
+
+    play();
 
     // Reset and replay after all messages shown
     const totalTime = messages[messages.length - 1].delay + 4000;
     const interval = setInterval(() => {
       setVisibleCount(0);
-      messages.forEach((msg, i) => {
-        setTimeout(() => {
-          setVisibleCount(i + 1);
-        }, msg.delay);
-      });
+      play();
     }, totalTime);
 
-    return () => clearInterval(interval);
-  }, [hasStarted]);
+    return () => {
+      timers.forEach(clearTimeout);
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <div className="w-full max-w-[420px] rounded-2xl overflow-hidden border border-[#27272a] bg-[#0e1621] shadow-2xl">

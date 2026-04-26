@@ -42,7 +42,7 @@ const MCP_SCENES = [
       { text: "  {primary:→ mcp} homebutler docker list", delay: 400 },
       { text: "  {dim:  plex          } {red:exited (137)}  3h ago", delay: 200 },
       { text: "  {dim:  uptime-kuma   } {green:running}      4d", delay: 150 },
-      { text: "  {dim:  vaultwarden   } {green:running}      4d", delay: 150 },
+      { text: "  {dim:  password-safe} {green:running}      4d", delay: 150 },
       { text: "", delay: 200 },
       { text: '  {primary:→ mcp} homebutler docker restart plex', delay: 500 },
       { text: "  Container restarted.", delay: 400 },

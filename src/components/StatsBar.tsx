@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const STATS = [
-  { value: "~15MB", label: "Single Binary" },
-  { value: "15", label: "Apps Ready" },
-  { value: "15", label: "MCP Tools" },
-  { value: "0", label: "Dependencies" },
+  { value: "Map", label: "Inventory & Topology" },
+  { value: "Watch", label: "Crash Evidence" },
+  { value: "Drill", label: "Restore Confidence" },
+  { value: "MCP", label: "AI-Ready Ops" },
 ];
 
 export default function StatsBar() {
@@ -27,7 +27,7 @@ export default function StatsBar() {
               transition={{ duration: 0.4, delay: i * 0.1 }}
               className="text-center"
             >
-              <p className="text-4xl md:text-5xl font-extrabold gradient-text-primary mb-2">
+              <p className="text-3xl md:text-4xl font-extrabold gradient-text-primary mb-2">
                 {stat.value}
               </p>
               <p className="text-sm text-[#52525b] uppercase tracking-wider font-medium">

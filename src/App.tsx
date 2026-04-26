@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import StatsBar from "./components/StatsBar";
 import Comparison from "./components/Comparison";
 import KillingScenarios from "./components/KillingScenarios";
+import InventoryTopology from "./components/InventoryTopology";
 import ProductShot from "./components/ProductShot";
 import AINative from "./components/AINative";
 import SelfHealing from "./components/SelfHealing";
@@ -19,6 +20,8 @@ export default function App() {
         <StatsBar />
         <div className="section-divider" />
         <Comparison />
+        <div className="section-divider" />
+        <InventoryTopology />
         <div className="section-divider" />
         <KillingScenarios />
         <div className="section-divider" />

@@ -35,8 +35,8 @@ export default function AINative() {
             Built for AI. From day one.
           </h2>
           <p className="text-[#a1a1aa] text-lg max-w-2xl mx-auto">
-            Your AI assistant calls homebutler tools directly through MCP. 15
-            tools, zero glue code.
+            Your AI assistant calls homebutler tools directly through MCP — after
+            homebutler has mapped what exists and what is exposed.
           </p>
         </motion.div>
 
@@ -83,10 +83,11 @@ export default function AINative() {
             <div className="mt-6 bg-[#18181b] border border-[#27272a] rounded-lg p-5">
               <p className="text-sm text-[#a1a1aa] leading-relaxed">
                 <span className="text-[#fafafa] font-medium">
-                  15 MCP tools
+                  AI-ready operations
                 </span>{" "}
-                — server status, app install, backup, alerts, Docker management,
-                system metrics, and more. Your AI has full homelab control.
+                — inventory, server status, Docker management, backup drill,
+                alerts, app install, and more. Your AI gets structured context
+                before it acts.
               </p>
             </div>
           </motion.div>

@@ -4,20 +4,20 @@ import TerminalSim from "./TerminalSim";
 
 const HERO_SCENES = [
   {
-    command: "homebutler alerts --watch",
+    command: "homebutler inventory scan",
     output: [
-      { text: "", delay: 300 },
-      {
-        text: "  {red:🔴 ALERT} disk-full triggered on {primary:nas-01}",
-        delay: 200,
-      },
-      { text: "  Disk usage: {red:91.2%}  Threshold: 85%", delay: 150 },
-      { text: "  → Executing: {amber:docker system prune -f}", delay: 400 },
-      { text: "  → Reclaimed {green:4.2 GB}", delay: 500 },
-      { text: "  → Disk usage: {red:91%} → {green:66%}", delay: 300 },
-      { text: "  → Notification sent to {primary:Telegram}", delay: 200 },
+      { text: "", delay: 200 },
+      { text: "  {primary:🏠 Home Network} — demo-lab (10.10.0.12)", delay: 200 },
+      { text: "  Summary {green:✅ 6 running} · ⚪ 1 stopped · 🌍 3 public ports · 🔒 9 local ports", delay: 250 },
       { text: "", delay: 100 },
-      { text: "  {green:✅ Resolved in 7s.} You slept through it.", delay: 200 },
+      { text: "  {primary:📦 Containers (7)}", delay: 200 },
+      { text: "   ├─ ✅ uptime-kuma · running", delay: 150 },
+      { text: "   ├─ ✅ jellyfin · running", delay: 150 },
+      { text: "   └─ ✅ api-server · running", delay: 150 },
+      { text: "      └─ exposes {green::8080 → 8080/tcp}", delay: 250 },
+      { text: "", delay: 100 },
+      { text: "  {primary:🌐 App Ports (3)}", delay: 200 },
+      { text: "   └─ 🌍 :8080/tcp · api-server", delay: 180 },
     ],
   },
   {
@@ -46,7 +46,7 @@ const HERO_SCENES = [
       { text: "  Health:    {green:HTTP 200}", delay: 200 },
       { text: "  {green:DRILL PASSED}", delay: 100 },
       { text: "", delay: 100 },
-      { text: "  {primary:Drilling} vaultwarden ...", delay: 400 },
+      { text: "  {primary:Drilling} password-safe ...", delay: 400 },
       { text: "  Integrity: {green:tar valid (234 files)}", delay: 200 },
       { text: "  Boot:      {green:container started in 5s}", delay: 300 },
       { text: "  Health:    {green:HTTP 200}", delay: 200 },
@@ -74,7 +74,7 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="text-center text-sm md:text-base font-medium text-[#00ADD8] tracking-wider uppercase mb-5"
         >
-          You'll never touch your servers again.
+          Map it. Understand it. Fix it.
         </motion.p>
 
         {/* Title */}
@@ -84,7 +84,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-center text-4xl md:text-6xl font-extrabold tracking-tight gradient-text leading-[1.1] mb-6"
         >
-          Just receive the report.
+          Your homelab, one map away.
         </motion.h1>
 
         {/* Subtitle */}
@@ -94,9 +94,10 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center text-lg md:text-xl text-[#a1a1aa] max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Homebutler monitors, heals, and deploys — all on its own.
+          Homebutler maps your servers, spots exposed ports, verifies backups,
+          and gives AI safe tools to operate your homelab.
           <br />
-          <span className="text-[#e5e7eb] font-medium">One binary. CLI, AI, or chat.</span>
+          <span className="text-[#e5e7eb] font-medium">One Go binary. CLI, web, MCP, or chat.</span>
         </motion.p>
 
         {/* CTAs */}

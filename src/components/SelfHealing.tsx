@@ -6,7 +6,7 @@ const TIMELINE = [
     time: "03:14:22",
     icon: "🔴",
     title: "disk-full triggered",
-    detail: "nas-01 disk at 91.2%",
+    detail: "demo-node disk at 91.2%",
     color: "#ef4444",
   },
   {
@@ -139,7 +139,7 @@ export default function SelfHealing() {
                   {`    `}
                   <span className="text-[#00ADD8]">watch</span>
                   {`: `}
-                  <span className="text-[#10b981]">[uptime-kuma, vaultwarden]</span>
+                  <span className="text-[#10b981]">[monitor, password-safe]</span>
                   {`\n`}
                   {`    `}
                   <span className="text-[#00ADD8]">action</span>

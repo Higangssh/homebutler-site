@@ -10,23 +10,23 @@ const fadeUp = {
 const LAYERS = [
   {
     label: "Interface Layer",
-    items: ["Telegram", "Claude", "ChatGPT", "Cursor", "Web UI", "TUI"],
+    items: ["CLI", "Web UI", "TUI", "Telegram", "Claude", "ChatGPT"],
     color: "#a1a1aa",
     borderColor: "#3f3f46",
   },
   {
     label: "AI Agent Layer",
-    items: ["MCP Protocol", "15 Tools", "Natural Language"],
+    items: ["MCP Protocol", "Safe Tool Calls", "Natural Language"],
     color: "#00ADD8",
     borderColor: "#00ADD8",
   },
   {
     label: "homebutler Core",
     items: [
-      "Status",
+      "Inventory",
+      "Watch",
+      "Backup Drill",
       "Install",
-      "Backup",
-      "Alerts",
       "Self-Heal",
       "Multi-Server",
     ],
@@ -44,11 +44,11 @@ export default function Architecture() {
             Architecture
           </p>
           <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4">
-            Three interfaces, one core.
+            One operations layer.
           </h2>
           <p className="text-[#a1a1aa] text-lg max-w-2xl mx-auto">
-            Chat, AI, or CLI — they all go through homebutler. One binary powers
-            everything.
+            Map the system, watch what breaks, prove backups, then let CLI, web,
+            or AI tools operate through the same single binary.
           </p>
         </motion.div>
 
