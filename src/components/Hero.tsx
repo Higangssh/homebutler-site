@@ -67,11 +67,25 @@ export default function Hero() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(0,173,216,0.08)_0%,transparent_70%)]" />
 
       <div className="relative max-w-6xl mx-auto px-6">
+        {/* Mascot */}
+        <motion.div
+          initial={{ opacity: 0, y: 18, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center mb-5"
+        >
+          <img
+            src="/images/mascot.png"
+            alt="Homebutler mascot"
+            className="w-28 md:w-36 drop-shadow-[0_20px_60px_rgba(0,173,216,0.16)]"
+          />
+        </motion.div>
+
         {/* Eyebrow */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.05 }}
           className="text-center text-sm md:text-base font-medium text-[#00ADD8] tracking-wider uppercase mb-5"
         >
           Map it. Understand it. Fix it.
