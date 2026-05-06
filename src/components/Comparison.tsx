@@ -17,12 +17,12 @@ const BEFORE = [
 ];
 
 const AFTER = [
-  { icon: "💬", text: '"Status of all servers"' },
-  { icon: "🛡️", text: '"Run backup drill"' },
-  { icon: "📦", text: '"Install uptime-kuma"' },
-  { icon: "🔄", text: "Self-healing fixes it before you notice" },
-  { icon: "✅", text: "Backups verified automatically" },
-  { icon: "😴", text: "You sleep. Homebutler doesn't." },
+  { icon: "🧾", text: '"What changed since yesterday?"' },
+  { icon: "🗺️", text: "Containers, ports, and topology in one map" },
+  { icon: "🔎", text: "Crash evidence captured before logs disappear" },
+  { icon: "🛡️", text: "Backup drills prove restores actually boot" },
+  { icon: "🤖", text: "AI gets narrow tools instead of a full shell" },
+  { icon: "✅", text: "JSON output for scripts, cron, and MCP" },
 ];
 
 export default function Comparison() {
@@ -34,10 +34,13 @@ export default function Comparison() {
             Why Homebutler?
           </p>
           <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4">
-            Stop managing. Start talking.
+            Stop staring at dashboards.
+            <br />
+            Ask what changed.
           </h2>
           <p className="text-[#a1a1aa] text-lg max-w-2xl mx-auto">
-            Other tools give you dashboards. Homebutler gives you a conversation.
+            Dashboards show state. Homebutler is built around situational awareness:
+            what looks wrong, what moved, and what to check next.
           </p>
         </motion.div>
 

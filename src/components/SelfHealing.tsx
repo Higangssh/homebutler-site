@@ -5,36 +5,36 @@ const TIMELINE = [
   {
     time: "03:14:22",
     icon: "🔴",
-    title: "disk-full triggered",
-    detail: "demo-node disk at 91.2%",
+    title: "report detects drift",
+    detail: "demo-node disk crossed the warning threshold",
     color: "#ef4444",
   },
   {
     time: "03:14:23",
-    icon: "⚡",
-    title: "Executing action",
-    detail: "docker system prune -f",
+    icon: "🔎",
+    title: "evidence attached",
+    detail: "recent disk delta, containers, and public ports",
     color: "#f59e0b",
   },
   {
     time: "03:14:28",
-    icon: "📦",
-    title: "Reclaimed 4.2 GB",
-    detail: "Removed unused images, volumes, networks",
+    icon: "🤖",
+    title: "agent suggests next step",
+    detail: "explicit command proposal, not a hidden shell session",
     color: "#00ADD8",
   },
   {
     time: "03:14:29",
     icon: "✅",
-    title: "Resolved",
-    detail: "Disk usage: 91% → 66%",
+    title: "operator approves",
+    detail: "the action is explainable before it runs",
     color: "#10b981",
   },
   {
     time: "03:14:30",
     icon: "📨",
-    title: "Notification sent",
-    detail: "Telegram alert delivered",
+    title: "result summarized",
+    detail: "what changed, what ran, and what to watch next",
     color: "#10b981",
   },
 ];
@@ -62,16 +62,17 @@ export default function SelfHealing() {
           className="text-center mb-16"
         >
           <p className="text-sm font-medium text-[#10b981] tracking-wider uppercase mb-3">
-            Self-Healing
+            Agentic Ops Roadmap
           </p>
           <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4">
-            Your homelab fixes itself
+            Agentic, eventually.
             <br />
-            while you sleep.
+            Explainable, first.
           </h2>
           <p className="text-[#a1a1aa] text-lg max-w-2xl mx-auto">
-            Define rules in YAML. Homebutler watches your servers and takes action
-            automatically — restart containers, prune disk, or run custom scripts.
+            The end goal is real agentic home-server operations. The hard part is
+            simplifying the path: narrow tools, visible evidence, and actions you
+            can understand before you trust them.
           </p>
         </motion.div>
 
@@ -84,7 +85,7 @@ export default function SelfHealing() {
             transition={{ duration: 0.6 }}
           >
             <p className="text-sm font-medium text-[#a1a1aa] mb-3">
-              alerts.yaml
+              future rule shape
             </p>
             <div className="terminal">
               <div className="terminal-header">
@@ -103,7 +104,7 @@ export default function SelfHealing() {
                   {` `}
                   <span className="text-[#00ADD8]">name</span>
                   {`: `}
-                  <span className="text-[#10b981]">disk-full</span>
+                  <span className="text-[#10b981]">disk-drift</span>
                   {`\n`}
                   {`    `}
                   <span className="text-[#00ADD8]">metric</span>
@@ -118,12 +119,12 @@ export default function SelfHealing() {
                   {`    `}
                   <span className="text-[#00ADD8]">action</span>
                   {`: `}
-                  <span className="text-[#10b981]">exec</span>
+                  <span className="text-[#10b981]">suggest</span>
                   {`\n`}
                   {`    `}
-                  <span className="text-[#00ADD8]">exec</span>
+                  <span className="text-[#00ADD8]">requires_approval</span>
                   {`: `}
-                  <span className="text-[#10b981]">"docker system prune -f"</span>
+                  <span className="text-[#10b981]">true</span>
                   {`\n\n`}
                   <span className="text-[#52525b]">  -</span>
                   {` `}
@@ -144,7 +145,7 @@ export default function SelfHealing() {
                   {`    `}
                   <span className="text-[#00ADD8]">action</span>
                   {`: `}
-                  <span className="text-[#10b981]">restart</span>
+                  <span className="text-[#10b981]">explain_then_restart</span>
                   {`\n`}
                   {`    `}
                   <span className="text-[#00ADD8]">cooldown</span>
@@ -163,7 +164,7 @@ export default function SelfHealing() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <p className="text-sm font-medium text-[#a1a1aa] mb-3">
-              What happens at 3 AM:
+              What safer automation should look like:
             </p>
             <div className="space-y-3">
               <AnimatePresence>

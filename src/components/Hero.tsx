@@ -4,20 +4,20 @@ import TerminalSim from "./TerminalSim";
 
 const HERO_SCENES = [
   {
-    command: "homebutler inventory scan",
+    command: "homebutler report",
     output: [
       { text: "", delay: 200 },
-      { text: "  {primary:🏠 Home Network} — demo-lab (10.10.0.12)", delay: 200 },
-      { text: "  Summary {green:✅ 6 running} · ⚪ 1 stopped · 🌍 3 public ports · 🔒 9 local ports", delay: 250 },
+      { text: "  {primary:🏠 Homebutler Report} — demo-lab", delay: 200 },
+      { text: "  CPU 12.5% · Memory 8.0/16.0 GB · Disk / 60%", delay: 250 },
       { text: "", delay: 100 },
-      { text: "  {primary:📦 Containers (7)}", delay: 200 },
-      { text: "   ├─ ✅ uptime-kuma · running", delay: 150 },
-      { text: "   ├─ ✅ jellyfin · running", delay: 150 },
-      { text: "   └─ ✅ api-server · running", delay: 150 },
-      { text: "      └─ exposes {green::8080 → 8080/tcp}", delay: 250 },
+      { text: "  {primary:Needs Attention}", delay: 200 },
+      { text: "   ⚠️  1 container stopped", delay: 150 },
       { text: "", delay: 100 },
-      { text: "  {primary:🌐 App Ports (3)}", delay: 200 },
-      { text: "   └─ 🌍 :8080/tcp · api-server", delay: 180 },
+      { text: "  {primary:Notable Changes}", delay: 200 },
+      { text: "   Public ports: 2 → 3", delay: 180 },
+      { text: "   Disk /: +5.0 GB since last report", delay: 180 },
+      { text: "", delay: 100 },
+      { text: "  → Verify the new public port is intentional", delay: 180 },
     ],
   },
   {
@@ -88,7 +88,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.05 }}
           className="text-center text-sm md:text-base font-medium text-[#00ADD8] tracking-wider uppercase mb-5"
         >
-          Map it. Understand it. Fix it.
+          Safe AI ops for small homelabs
         </motion.p>
 
         {/* Title */}
@@ -98,7 +98,9 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-center text-4xl md:text-6xl font-extrabold tracking-tight gradient-text leading-[1.1] mb-6"
         >
-          Your homelab, one map away.
+          Know what changed
+          <br />
+          before you fix it.
         </motion.h1>
 
         {/* Subtitle */}
@@ -108,10 +110,10 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center text-lg md:text-xl text-[#a1a1aa] max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Homebutler maps your servers, spots exposed ports, verifies backups,
-          and gives AI safe tools to operate your homelab.
+          Homebutler turns server maintenance into narrow, readable operations:
+          report what changed, map exposed ports, catch crashes, and verify backups.
           <br />
-          <span className="text-[#e5e7eb] font-medium">One Go binary. CLI, web, MCP, or chat.</span>
+          <span className="text-[#e5e7eb] font-medium">One Go binary. CLI, web, JSON, or MCP — no SSH key required.</span>
         </motion.p>
 
         {/* CTAs */}
