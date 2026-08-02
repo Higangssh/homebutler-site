@@ -1,0 +1,253 @@
+<!doctype html>
+<!--
+  Source for public/og.png (Open Graph / Twitter share card).
+  Regenerate: open this file in a browser at exactly 1200x630 and screenshot,
+  or run the Playwright snippet in tools/README.md.
+  Keep the copy in sync with src/components/Hero.tsx.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>homebutler — OG card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #09090b;
+        --primary: #00add8;
+        --green: #10b981;
+        --text: #e5e7eb;
+        --text-dim: #a1a1aa;
+        --text-bright: #fafafa;
+        --border: #27272a;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        background: #000;
+      }
+
+      .card {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: var(--bg);
+        font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Same 60px grid as the landing page hero */
+      .grid {
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        background-size: 60px 60px;
+      }
+
+      /* Cyan glow behind the mascot, mirroring the hero radial */
+      .glow {
+        position: absolute;
+        top: -140px;
+        right: -80px;
+        width: 760px;
+        height: 760px;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(0, 173, 216, 0.16) 0%,
+          transparent 68%
+        );
+      }
+
+      /* Vignette so the edges stay dark if a platform crops them */
+      .vignette {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at 30% 45%,
+          transparent 45%,
+          rgba(9, 9, 11, 0.7) 100%
+        );
+      }
+
+      .accent-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--primary) 0%,
+          var(--green) 55%,
+          transparent 100%
+        );
+      }
+
+      .content {
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        padding: 72px 76px;
+      }
+
+      .left {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 22px;
+      }
+
+      .eyebrow .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary);
+        box-shadow: 0 0 12px rgba(0, 173, 216, 0.9);
+      }
+
+      h1 {
+        font-size: 66px;
+        font-weight: 800;
+        line-height: 1.08;
+        letter-spacing: -0.028em;
+        background: linear-gradient(135deg, #fafafa 0%, #a1a1aa 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding-bottom: 0.08em;
+        margin-bottom: 26px;
+      }
+
+      .sub {
+        font-size: 22px;
+        line-height: 1.5;
+        color: var(--text-dim);
+        max-width: 610px;
+        margin-bottom: 40px;
+      }
+
+      .sub strong {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      .footer {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .wordmark {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text-bright);
+      }
+
+      /* Small CLI mark — the full logo is unreadable at this size */
+      .mark {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+        border: 1px solid rgba(0, 173, 216, 0.45);
+        background: rgba(0, 173, 216, 0.1);
+        box-shadow: 0 0 22px rgba(0, 173, 216, 0.18);
+        font-family: "SF Mono", "Cascadia Code", "Fira Code", monospace;
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--primary);
+        letter-spacing: -0.06em;
+      }
+
+      .divider {
+        width: 1px;
+        height: 26px;
+        background: var(--border);
+      }
+
+      .repo {
+        font-family: "SF Mono", "Cascadia Code", "Fira Code", monospace;
+        font-size: 17px;
+        color: #71717a;
+      }
+
+      .right {
+        position: relative;
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .right img {
+        width: 336px;
+        filter: drop-shadow(0 26px 70px rgba(0, 173, 216, 0.28));
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="grid"></div>
+      <div class="glow"></div>
+      <div class="vignette"></div>
+      <div class="accent-bar"></div>
+
+      <div class="content">
+        <div class="left">
+          <p class="eyebrow"><span class="dot"></span>Safe AI ops for small homelabs</p>
+          <h1>Know what changed<br />before you fix it.</h1>
+          <p class="sub">
+            Report what changed, map exposed ports, catch crashes, and verify backups.
+            <br />
+            <strong>One Go binary — CLI, web, JSON, or MCP.</strong>
+          </p>
+          <div class="footer">
+            <span class="wordmark">
+              <span class="mark">&gt;_</span>
+              homebutler
+            </span>
+            <span class="divider"></span>
+            <span class="repo">homebutler.dev</span>
+          </div>
+        </div>
+
+        <div class="right">
+          <img src="../public/images/mascot.png" alt="Homebutler mascot" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
