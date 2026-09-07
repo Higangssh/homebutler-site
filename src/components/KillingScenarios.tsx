@@ -58,20 +58,20 @@ const MCP_SCENES = [
 
 const SUPPORTED_APPS = [
   "uptime-kuma",
-  "vaultwarden",
-  "pi-hole",
-  "jellyfin",
-  "gitea",
   "plex",
+  "vaultwarden",
+  "filebrowser",
+  "it-tools",
+  "gitea",
+  "jellyfin",
+  "homepage",
+  "stirling-pdf",
+  "speedtest-tracker",
+  "mealie",
+  "pi-hole",
+  "adguard-home",
   "portainer",
   "nginx-proxy-manager",
-  "nextcloud",
-  "home-assistant",
-  "grafana",
-  "prometheus",
-  "wireguard",
-  "immich",
-  "freshrss",
 ];
 
 export default function KillingScenarios() {
@@ -198,7 +198,7 @@ export default function KillingScenarios() {
           {/* App grid */}
           <motion.div {...fadeUp} className="max-w-3xl mx-auto">
             <p className="text-center text-sm text-[#52525b] mb-4">
-              15+ apps ready to deploy with one command
+              15 apps ready to deploy with one command
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               {SUPPORTED_APPS.map((app) => (
