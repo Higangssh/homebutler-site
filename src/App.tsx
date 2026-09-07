@@ -2,8 +2,10 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import StatsBar from "./components/StatsBar";
 import Comparison from "./components/Comparison";
+import ChangeKinds from "./components/ChangeKinds";
 import KillingScenarios from "./components/KillingScenarios";
 import InventoryTopology from "./components/InventoryTopology";
+import Doctor from "./components/Doctor";
 import ProductShot from "./components/ProductShot";
 import AINative from "./components/AINative";
 import SelfHealing from "./components/SelfHealing";
@@ -21,7 +23,11 @@ export default function App() {
         <div className="section-divider" />
         <Comparison />
         <div className="section-divider" />
+        <ChangeKinds />
+        <div className="section-divider" />
         <InventoryTopology />
+        <div className="section-divider" />
+        <Doctor />
         <div className="section-divider" />
         <KillingScenarios />
         <div className="section-divider" />
