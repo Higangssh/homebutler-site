@@ -75,7 +75,7 @@ export default function Doctor() {
                 homebutler doctor
               </span>
             </div>
-            <pre className="terminal-body !min-h-0 text-xs md:text-sm leading-relaxed whitespace-pre-wrap">
+            <pre className="terminal-body !min-h-0 text-xs md:text-sm leading-relaxed whitespace-pre overflow-x-auto">
               <code className="text-[#e5e7eb]">{DOCTOR_OUTPUT}</code>
             </pre>
           </motion.div>

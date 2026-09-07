@@ -113,7 +113,7 @@ export default function TerminalSim({
       >
         {displayLines.map((line, i) => (
           <div key={i} className={line.color || "text-[#e5e7eb]"}>
-            {renderColoredLine(line.text)}
+            {line.text === "" ? "\u00A0" : renderColoredLine(line.text)}
           </div>
         ))}
         {/* Current typing line */}
