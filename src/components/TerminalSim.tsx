@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 interface TerminalLine {
   text: string;
@@ -28,6 +28,15 @@ export default function TerminalSim({
     { text: string; color?: string }[]
   >([]);
   const [currentCmd, setCurrentCmd] = useState("");
+  const bodyRef = useRef<HTMLDivElement>(null);
+
+  // Lines accumulate across every scene in the loop, so a scene longer than the
+  // box would otherwise play entirely below the fold — including the last line,
+  // which is the one worth reading.
+  useEffect(() => {
+    const el = bodyRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [displayLines, currentCmd]);
 
   const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -98,6 +107,7 @@ export default function TerminalSim({
         <span className="ml-auto text-xs text-[#52525b]">Homebutler</span>
       </div>
       <div
+        ref={bodyRef}
         className={`terminal-body overflow-y-auto ${compact ? "text-xs !min-h-0 !p-4" : ""}`}
         style={{ maxHeight: compact ? 280 : 360 }}
       >
