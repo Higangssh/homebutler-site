@@ -98,7 +98,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.05 }}
           className="text-center text-sm md:text-base font-medium text-[#00ADD8] tracking-wider uppercase mb-5"
         >
-          Safe AI ops for small homelabs
+          Only the changes worth mentioning
         </motion.p>
 
         {/* Title */}
@@ -120,10 +120,11 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center text-lg md:text-xl text-[#a1a1aa] max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Homebutler turns server maintenance into narrow, readable operations:
-          report what changed, map exposed ports, catch crashes, and verify backups.
+          Homebutler remembers what your server looked like last time, decides what is
+          worth saying, and says it — a container recreated behind the same name, a port
+          that changed hands, a backup that would not have restored.
           <br />
-          <span className="text-[#e5e7eb] font-medium">One Go binary. CLI, web, JSON, or MCP — no SSH key required.</span>
+          <span className="text-[#e5e7eb] font-medium">One Go binary. No daemon, no database. CLI, web, JSON, or MCP.</span>
         </motion.p>
 
         {/* CTAs */}

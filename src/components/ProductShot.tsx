@@ -15,10 +15,11 @@ export default function ProductShot() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4">
-            See everything at a glance.
+            The same report, in a browser.
           </h2>
           <p className="text-[#a1a1aa] text-lg">
-            Built-in web dashboard. No extra dependencies. Just{" "}
+            What needs attention, then what changed, then doctor — on a phone or a
+            desktop, from the binary you already have. Just{" "}
             <code className="text-[#00ADD8] bg-[#18181b] px-1.5 py-0.5 rounded text-sm">
               homebutler serve
             </code>
@@ -35,8 +36,8 @@ export default function ProductShot() {
         >
           <div className="rounded-xl overflow-hidden border border-[#27272a] glow-primary">
             <img
-              src="/images/web-dashboard.png"
-              alt="homebutler web dashboard"
+              src="/images/web-report.png"
+              alt="the Report tab: two findings needing attention, then the changes with their kind — replaced, port, gone, new, disk, skipped — then doctor with the command for each finding"
               className="w-full"
               loading="lazy"
             />

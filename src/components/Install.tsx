@@ -32,9 +32,15 @@ const METHODS: Method[] = [
     command: "npm install -g homebutler",
   },
   {
+    id: "docker",
+    label: "Docker",
+    command:
+      "docker run -v ~/.config/homebutler:/config -v ~/.ssh:/root/.ssh:ro ghcr.io/higangssh/homebutler",
+  },
+  {
     id: "go",
     label: "Go",
-    command: "go install github.com/Higangssh/homebutler@latest",
+    command: "go install github.com/Higangssh/homebutler@v0.35.2",
   },
 ];
 

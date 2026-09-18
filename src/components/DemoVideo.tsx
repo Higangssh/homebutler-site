@@ -19,11 +19,12 @@ export default function DemoVideo() {
             See it in action
           </p>
           <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4">
-            See what Homebutler can do.
+            Half a minute, start to finish.
           </h2>
           <p className="text-[#a1a1aa] text-lg max-w-2xl mx-auto">
-            Monitor, install, backup, self-heal — all from one binary.
-            A quick overview of everything Homebutler brings to your homelab.
+            A report naming what moved, the same answer as JSON for an agent,
+            a doctor check, a backup drill that boots the archive, and the whole
+            thing on a phone.
           </p>
         </motion.div>
 
@@ -38,7 +39,7 @@ export default function DemoVideo() {
                 className="absolute inset-0 flex flex-col items-center justify-center gap-4 group cursor-pointer"
               >
                 <img
-                  src="https://img.youtube.com/vi/MFoDiYRH_nE/maxresdefault.jpg"
+                  src="https://img.youtube.com/vi/jwRuFoxNWOY/maxresdefault.jpg"
                   alt="Homebutler demo"
                   className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
                 />
@@ -58,7 +59,7 @@ export default function DemoVideo() {
               </button>
             ) : (
               <iframe
-                src="https://www.youtube.com/embed/MFoDiYRH_nE?autoplay=1&rel=0"
+                src="https://www.youtube.com/embed/jwRuFoxNWOY?autoplay=1&rel=0"
                 title="Homebutler demo"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

@@ -3,12 +3,13 @@
 ## 프로젝트 정보
 - **제품**: homebutler — single-binary homelab management CLI + MCP server
 - **GitHub**: https://github.com/Higangssh/homebutler
-- **현재**: ⭐81, v0.13.0, Go, 15개 앱 설치, MCP 15개 도구
+- **현재**: v0.35.2, Go, 15개 앱 설치, MCP 44개 도구 (읽기/쓰기/파괴 등급)
+- **주의**: 이 문서에 수치를 적으면 낡는다. 스타 수처럼 매일 바뀌는 값은 적지 않는다.
 - **대상**: 셀프호스팅 개발자, 홈랩 운영자, DevOps
 
 ## 핵심 메시지
-- **한 줄**: "Your homelab, one binary away."
-- **서브**: Monitor, control, backup, and self-heal — from chat, AI, or terminal.
+- **한 줄**: "Only the changes worth mentioning."
+- **서브**: 지난번과 무엇이 달라졌는지, 그중 무엇이 중요한지. 데몬도 DB도 없는 Go 단일 바이너리.
 - **차별점**: 
   - Single binary, zero dependencies
   - AI-native (MCP built-in)
