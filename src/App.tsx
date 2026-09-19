@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import StatsBar from "./components/StatsBar";
+import DemoVideo from "./components/DemoVideo";
 import Comparison from "./components/Comparison";
 import ChangeKinds from "./components/ChangeKinds";
 import KillingScenarios from "./components/KillingScenarios";
@@ -20,6 +21,8 @@ export default function App() {
       <main>
         <Hero />
         <StatsBar />
+        <div className="section-divider" />
+        <DemoVideo />
         <div className="section-divider" />
         <Comparison />
         <div className="section-divider" />
