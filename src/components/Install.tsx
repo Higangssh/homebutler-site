@@ -1,4 +1,7 @@
 import { useState } from "react";
+
+// Injected at build time from the newest release — see vite.config.ts.
+declare const __HOMEBUTLER_VERSION__: string;
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -40,7 +43,7 @@ const METHODS: Method[] = [
   {
     id: "go",
     label: "Go",
-    command: "go install github.com/Higangssh/homebutler@v0.35.2",
+    command: `go install github.com/Higangssh/homebutler@${__HOMEBUTLER_VERSION__}`,
   },
 ];
 
