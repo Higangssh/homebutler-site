@@ -83,11 +83,11 @@ export default function AINative() {
             <div className="mt-6 bg-[#18181b] border border-[#27272a] rounded-lg p-5">
               <p className="text-sm text-[#a1a1aa] leading-relaxed">
                 <span className="text-[#fafafa] font-medium">
-                  AI-ready operations
+                  Commands, not a shell
                 </span>{" "}
-                — inventory, server status, Docker management, backup drill,
-                alerts, app install, and more. Your AI gets structured context
-                before it acts.
+                — an agent gets the same report as typed JSON, kind, target and
+                detail rather than a sentence to parse, and every tool is
+                classed read, write or destructive.
               </p>
             </div>
           </motion.div>
