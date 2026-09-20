@@ -9,7 +9,6 @@ import InventoryTopology from "./components/InventoryTopology";
 import Doctor from "./components/Doctor";
 import ProductShot from "./components/ProductShot";
 import AINative from "./components/AINative";
-import SelfHealing from "./components/SelfHealing";
 import Install from "./components/Install";
 import FinalCTA from "./components/FinalCTA";
 import Footer from "./components/Footer";
@@ -37,8 +36,6 @@ export default function App() {
         <ProductShot />
         <div className="section-divider" />
         <AINative />
-        <div className="section-divider" />
-        <SelfHealing />
         <div className="section-divider" />
         <Install />
         <div className="section-divider" />
