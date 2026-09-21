@@ -6,9 +6,18 @@ import { cloudflare } from "@cloudflare/vite-plugin";
 // The install commands name a version, because `go install …@latest` fetches
 // whatever is newest and a scanner is right to call that an unpinned install.
 // A version typed into a component rots at the next release, so it is read
-// from the newest release at build time instead. FALLBACK is what ships if
-// GitHub cannot be reached — an older version installs fine, it is only behind.
-const FALLBACK = "v0.36.1";
+// from the newest release here instead.
+//
+// This is the first of three readings, not the only one. A build runs when
+// somebody pushes to this repository, which has nothing to do with when a
+// release ships: 0.38.0 went out and the page kept offering 0.37.0 because no
+// site change happened in between. So the page asks GitHub again when it
+// loads (Install.tsx), and this value is what it starts from.
+//
+// FALLBACK is the last of the three, for a build that cannot reach GitHub at
+// all. It is allowed to be old — being a release behind installs fine, and a
+// build that stops is worse than a version that lags.
+const FALLBACK = "v0.38.0";
 
 async function latestRelease(): Promise<string> {
   try {
