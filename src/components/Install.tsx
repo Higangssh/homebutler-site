@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-// Injected at build time from the newest release — see vite.config.ts.
+// Baked in at build time from the newest release — see vite.config.ts. It is
+// the starting value, not the final one: a build only happens when somebody
+// pushes to this repository, so a release shipped between two site changes
+// would leave this behind. 0.38.0 shipped and the page kept offering 0.37.0.
 declare const __HOMEBUTLER_VERSION__: string;
 import { motion } from "framer-motion";
 
@@ -17,7 +20,8 @@ interface Method {
   command: string;
 }
 
-const METHODS: Method[] = [
+function methods(version: string): Method[] {
+  return [
   {
     id: "curl",
     label: "curl",
@@ -40,16 +44,45 @@ const METHODS: Method[] = [
     command:
       "docker run -v ~/.config/homebutler:/config -v ~/.ssh:/root/.ssh:ro ghcr.io/higangssh/homebutler",
   },
-  {
-    id: "go",
-    label: "Go",
-    command: `go install github.com/Higangssh/homebutler@${__HOMEBUTLER_VERSION__}`,
-  },
-];
+    {
+      id: "go",
+      label: "Go",
+      command: `go install github.com/Higangssh/homebutler@${version}`,
+    },
+  ];
+}
+
+// Ask GitHub what the newest release is, and keep the baked value when the
+// answer does not arrive or does not look like a tag. Being one release behind
+// installs fine; showing something that is not a version does not.
+function useLatestVersion(): string {
+  const [version, setVersion] = useState(__HOMEBUTLER_VERSION__);
+
+  useEffect(() => {
+    const cancel = new AbortController();
+    fetch("https://api.github.com/repos/Higangssh/homebutler/releases/latest", {
+      headers: { Accept: "application/vnd.github+json" },
+      signal: cancel.signal,
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+      .then((body: { tag_name?: string }) => {
+        if (body.tag_name && /^v\d+\.\d+\.\d+$/.test(body.tag_name)) {
+          setVersion(body.tag_name);
+        }
+      })
+      .catch(() => {
+        /* the baked version stands */
+      });
+    return () => cancel.abort();
+  }, []);
+
+  return version;
+}
 
 export default function Install() {
   const [active, setActive] = useState("curl");
   const [copied, setCopied] = useState(false);
+  const METHODS = methods(useLatestVersion());
 
   const current = METHODS.find((m) => m.id === active)!;
 
