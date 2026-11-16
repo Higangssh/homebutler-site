@@ -19,6 +19,7 @@ interface Method {
   label: string;
   command: string;
   prompt?: string;
+  note?: string;
 }
 
 function methods(version: string): Method[] {
@@ -47,9 +48,12 @@ function methods(version: string): Method[] {
     command: `Invoke-WebRequest ${windowsZip} -OutFile homebutler.zip; Expand-Archive homebutler.zip -DestinationPath homebutler -Force; .\\homebutler\\homebutler.exe version`,
   },
   {
+    // The npm package publishes one command, homebutler-mcp, which starts the
+    // MCP server. It does not put the homebutler CLI on the PATH.
     id: "npm",
-    label: "npm",
+    label: "MCP (npm)",
     command: "npm install -g homebutler",
+    note: "Installs the MCP server for AI agents as homebutler-mcp, not the homebutler CLI.",
   },
   {
     id: "docker",
@@ -127,7 +131,7 @@ export default function Install() {
                   setActive(m.id);
                   setCopied(false);
                 }}
-                className={`flex-1 text-sm py-2 px-3 rounded-md transition-all font-medium ${
+                className={`flex-1 text-sm py-2 px-1 sm:px-3 whitespace-nowrap rounded-md transition-all font-medium ${
                   active === m.id
                     ? "bg-[#27272a] text-[#fafafa]"
                     : "text-[#a1a1aa] hover:text-[#e5e7eb]"
@@ -191,6 +195,9 @@ export default function Install() {
               </div>
             </div>
           </div>
+          {current.note && (
+            <p className="mt-3 text-sm text-[#a1a1aa] text-center">{current.note}</p>
+          )}
         </motion.div>
       </div>
     </section>
