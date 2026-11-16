@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "Install", href: "#install" },
-  { label: "Docs", href: "https://github.com/Higangssh/homebutler#readme" },
+  { label: "Docs", href: "https://docs.homebutler.dev" },
   { label: "GitHub", href: "https://github.com/Higangssh/homebutler" },
 ];
 

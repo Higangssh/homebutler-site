@@ -16,8 +16,10 @@ import { cloudflare } from "@cloudflare/vite-plugin";
 //
 // FALLBACK is the last of the three, for a build that cannot reach GitHub at
 // all. It is allowed to be old — being a release behind installs fine, and a
-// build that stops is worse than a version that lags.
-const FALLBACK = "v0.38.0";
+// build that stops is worse than a version that lags. It must stay at v1.7.0
+// or later, though: the Windows tab builds its zip URL from it, and no
+// earlier release has a Windows zip.
+const FALLBACK = "v1.8.0";
 
 async function latestRelease(): Promise<string> {
   try {

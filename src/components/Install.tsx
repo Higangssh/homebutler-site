@@ -18,9 +18,14 @@ interface Method {
   id: string;
   label: string;
   command: string;
+  prompt?: string;
 }
 
 function methods(version: string): Method[] {
+  // Release archives drop the "v" from the tag: v1.8.0 ships
+  // homebutler_1.8.0_windows_amd64.zip.
+  const windowsZip = `https://github.com/Higangssh/homebutler/releases/download/${version}/homebutler_${version.replace(/^v/, "")}_windows_amd64.zip`;
+
   return [
   {
     id: "curl",
@@ -32,6 +37,14 @@ function methods(version: string): Method[] {
     id: "brew",
     label: "Homebrew",
     command: "brew install Higangssh/homebutler/homebutler",
+  },
+  {
+    // curl | sh and Homebrew are macOS and Linux only, and the npm package
+    // installs the MCP server, not the CLI, so Windows gets the release zip.
+    id: "windows",
+    label: "Windows",
+    prompt: "PS>",
+    command: `Invoke-WebRequest ${windowsZip} -OutFile homebutler.zip; Expand-Archive homebutler.zip -DestinationPath homebutler -Force; .\\homebutler\\homebutler.exe version`,
   },
   {
     id: "npm",
@@ -106,7 +119,7 @@ export default function Install() {
 
         <motion.div {...fadeUp} className="max-w-2xl mx-auto">
           {/* Tabs */}
-          <div className="flex gap-1 mb-4 bg-[#18181b] rounded-lg p-1 border border-[#27272a]">
+          <div className="grid grid-cols-3 sm:flex gap-1 mb-4 bg-[#18181b] rounded-lg p-1 border border-[#27272a]">
             {METHODS.map((m) => (
               <button
                 key={m.id}
@@ -171,7 +184,7 @@ export default function Install() {
             </div>
             <div className="terminal-body !min-h-0">
               <div className="flex">
-                <span className="text-[#00ADD8] select-none">$ </span>
+                <span className="text-[#00ADD8] select-none">{current.prompt ?? "$"} </span>
                 <code className="text-[#e5e7eb] ml-2 break-all">
                   {current.command}
                 </code>
