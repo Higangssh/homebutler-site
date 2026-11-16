@@ -131,7 +131,7 @@ export default function Install() {
                   setActive(m.id);
                   setCopied(false);
                 }}
-                className={`flex-1 text-sm py-2 px-2 sm:px-3 whitespace-nowrap rounded-md transition-all font-medium ${
+                className={`flex-1 text-sm py-2 px-1 sm:px-3 whitespace-nowrap rounded-md transition-all font-medium ${
                   active === m.id
                     ? "bg-[#27272a] text-[#fafafa]"
                     : "text-[#a1a1aa] hover:text-[#e5e7eb]"

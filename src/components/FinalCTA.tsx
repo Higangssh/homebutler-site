@@ -2,10 +2,9 @@ import { motion } from "framer-motion";
 
 export default function FinalCTA() {
   return (
-    <section className="py-24 relative overflow-x-clip">
+    <section className="py-24 relative overflow-hidden">
       {/* Glow. It is 600px wide, so on a phone it would widen the page unless
-          the section clips it sideways; clip only that axis so the glow still
-          spills above and below the section as it does on desktop. */}
+          the section clips it, as the other glowing sections already do. */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(0,173,216,0.06)_0%,transparent_70%)]" />
 
       <div className="relative max-w-6xl mx-auto px-6 text-center">
