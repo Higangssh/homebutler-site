@@ -23,7 +23,7 @@ export default function Footer() {
             GitHub
           </a>
           <a
-            href="https://github.com/Higangssh/homebutler#readme"
+            href="https://docs.homebutler.dev"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-[#52525b] hover:text-[#a1a1aa] transition-colors"
